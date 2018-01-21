@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HW02 Task 3</title>
+    <style>
+      th { text-align: left; }
+      .col-1 { width: 33%; }
+      .col-2 { width: 66%; }
+      table { width: 100%; }
+      #r-col { float: right; }
+      #row-1 { width: 100%; }
+    </style>
+  </head>
+  <body>
+    <h1>HW02 Task Three</h1>
+    <table>
+      <tr>
+        <th class="col-1">Link Text</th>
+        <th class="col-2">Right Column Contents</th>
+      </tr>
+    </table>
+    <p>
+      <p id="row-1" class="col-1"><a href="javascript:void()" onclick="loremIpsem()">Lorem Ipsem</a><span id="r-col" class="col-2"></span></p>
+    </p>
+    <p>
+      <p class="col-1"><a href="javascript:void()" onclick="bottles()">99 Bottles</a></p>
+    </p>
+    <p>
+      <p class="col-1"><a href="javascript:void()" onclick="lastThing()">Last Thing</a></p>
+    </p>
+    <script charset="utf-8">
+      var col_2 = document.getElementById('r-col');
+      var new_p = document.createElement('p');
+
+      function loremIpsem() {
+        col_2.innerHTML = "";
+        col_2.insertBefore(new_p, null);
+        new_p.innerText = "Lorem ipsum dolor sit amet, consectetur adipscing elit. Maecenas quis pretium felis. Phasellus hendrerit nisi quis arcu accumsan consequat. Nulla convallis elementum neque. Vestibulum sagittis turpis vitae consequat egestas. Maecenas porttitor sem ex, ac rhoncus lorem blandit et. Proin vitae cursus nunc. Etiam nec urna ex. Maecenas vestibulum, erat sit amet feugiat pulvinar, nulla felis viverra libero, conque pretium eros nulla nec ex. Mauris sed ex urna. Vestibulum in ipsum sodales risus consequat fringilla. Nunc ornare suscipit tincidunt. Cras varius, nisi sed sagittis finibus, ante mauris mattis ligula, sed semper orci sapien eget sapien. Pellentesque ullamcorper leo felis id feugiat nibh varius quis.";
+        var new_p0 = document.createElement('p');
+        col_2.insertBefore(new_p0, null);
+        new_p0.innerText = "Lorem ipsum dolor sit amet, consectetur adipscing elit. Maecenas quis pretium felis. Phasellus hendrerit nisi quis arcu accumsan consequat. Nulla convallis elementum neque. Vestibulum sagittis turpis vitae consequat egestas. Maecenas porttitor sem ex, ac rhoncus lorem blandit et. Proin vitae cursus nunc. Etiam nec urna ex. Maecenas vestibulum, erat sit amet feugiat pulvinar, nulla felis viverra libero, conque pretium eros nulla nec ex. Mauris sed ex urna. Vestibulum in ipsum sodales risus consequat fringilla. Nunc ornare suscipit tincidunt. Cras varius, nisi sed sagittis finibus, ante mauris mattis ligula, sed semper orci sapien eget sapien. Pellentesque ullamcorper leo felis id feugiat nibh varius quis.";
+        var new_p1 = document.createElement('p');
+        col_2.insertBefore(new_p1, null);
+        new_p1.innerText = "Lorem ipsum dolor sit amet, consectetur adipscing elit. Maecenas quis pretium felis. Phasellus hendrerit nisi quis arcu accumsan consequat. Nulla convallis elementum neque. Vestibulum sagittis turpis vitae consequat egestas. Maecenas porttitor sem ex, ac rhoncus lorem blandit et. Proin vitae cursus nunc. Etiam nec urna ex. Maecenas vestibulum, erat sit amet feugiat pulvinar, nulla felis viverra libero, conque pretium eros nulla nec ex. Mauris sed ex urna. Vestibulum in ipsum sodales risus consequat fringilla. Nunc ornare suscipit tincidunt. Cras varius, nisi sed sagittis finibus, ante mauris mattis ligula, sed semper orci sapien eget sapien. Pellentesque ullamcorper leo felis id feugiat nibh varius quis.";
+        var new_p2 = document.createElement('p');
+        col_2.insertBefore(new_p2, null);
+        new_p2.innerText = "Lorem ipsum dolor sit amet, consectetur adipscing elit. Maecenas quis pretium felis. Phasellus hendrerit nisi quis arcu accumsan consequat. Nulla convallis elementum neque. Vestibulum sagittis turpis vitae consequat egestas. Maecenas porttitor sem ex, ac rhoncus lorem blandit et. Proin vitae cursus nunc. Etiam nec urna ex. Maecenas vestibulum, erat sit amet feugiat pulvinar, nulla felis viverra libero, conque pretium eros nulla nec ex. Mauris sed ex urna. Vestibulum in ipsum sodales risus consequat fringilla. Nunc ornare suscipit tincidunt. Cras varius, nisi sed sagittis finibus, ante mauris mattis ligula, sed semper orci sapien eget sapien. Pellentesque ullamcorper leo felis id feugiat nibh varius quis.";
+      }
+
+      function bottles() {
+        col_2.innerHTML = "";
+        col_2.insertBefore(new_p, null);
+        new_p.innerHTML = "99 bottles of beer on the wall, 99 bottles of beer.<br>Take one down and pass it around, 98 bottles of beer on the wall.";
+        var new_p0 = document.createElement('p');
+        col_2.insertBefore(new_p0, null);
+        new_p0.innerHTML = "98 bottles of beer on the wall, 98 bottles of beer.<br>Take one down and pass it around, 97 bottles of beer on the wall.";
+        var new_p1 = document.createElement('p');
+        col_2.insertBefore(new_p1, null);
+        new_p1.innerHTML = "97 bottles of beer on the wall, 97 bottles of beer.<br>Take one down and pass it around, 96 bottles of beer on the wall.";
+        var new_p2 = document.createElement('p');
+        col_2.insertBefore(new_p2, null);
+        new_p2.innerHTML = "96 bottles of beer on the wall, 96 bottles of beer.<br>Take one down and pass it around, 95 bottles of beer on the wall.";
+      }
+
+      function lastThing() {
+        col_2.innerHTML = "";
+        col_2.innerText = "this is the third thing";
+      }
+
+      loremIpsem();
+    </script>
+  </body>
+</html>
