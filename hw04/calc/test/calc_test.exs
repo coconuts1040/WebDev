@@ -5,43 +5,43 @@ defmodule CalcTest do
   doctest Calc
 
   test "addition" do
-    assert Calc.eval("4+5") == "9.0"
+    assert Calc.eval("4+5") == 9.0
   end
 
   test "subtraction" do
-    assert Calc.eval("9-4") == "5.0"
+    assert Calc.eval("9-4") == 5.0
   end
 
   test "multiplication" do
-    assert Calc.eval("7*3") == "21.0"
+    assert Calc.eval("7*3") == 21.0
   end
 
   test "division" do
-    assert Calc.eval("8/2") == "4.0"
+    assert Calc.eval("8/2") == 4.0
   end
 
   test "double digits" do
-    assert Calc.eval("16-5") == "11.0"
+    assert Calc.eval("16-5") == 11.0
   end
 
   test "spaces between" do
-    assert Calc.eval("4 - 5+2") == "1.0"
+    assert Calc.eval("4 - 5+2") == 1.0
   end
 
   test "order of operations" do
-    assert Calc.eval("3+4*5-6") == "17.0"
+    assert Calc.eval("3+4*5-6") == 17.0
   end
 
   test "parentheses all" do
-    assert Calc.eval("(8-5)") == "3.0"
+    assert Calc.eval("(8-5)") == 3.0
   end
 
   test "parentheses overrules order of operations" do
-    assert Calc.eval("5*(4+3)") == "35.0"
+    assert Calc.eval("5*(4+3)") == 35.0
   end
 
-  test "invalid operator" do
-    assert_raise ArgumentError, Calc.eval("6+4^3")
+  test "parentheses beginning" do
+    assert Calc.eval("(3-7)/4") == -1.0
   end
 
   test "invalid syntax end" do
@@ -50,9 +50,5 @@ defmodule CalcTest do
 
   test "invalid syntax beginning" do
     assert_raise ArgumentError, Calc.eval("*5-4")
-  end
-
-  test "float in arguments" do
-    assert_raise ArgumentError, Calc.eval("6.0 - 4")
   end
 end
