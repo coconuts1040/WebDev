@@ -1,0 +1,18 @@
+<!-- Taken from Nat Tuck's lecture notes -->
+<h1>All Tasks</h1>
+
+<%= Enum.map @tasks, fn task -> %>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title"><%= task.title %></h6>
+          <p><%= task.description %></p>
+          <p>Assigned to: <%= task.user.name %></p>
+          <p>Progress (minutes): <%= task.progress %></p>
+          <p>Completed: <%= task.completed %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
