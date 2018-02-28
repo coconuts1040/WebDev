@@ -1,7 +1,0 @@
-<h2>Edit Task</h2>
-<%= if @current_user == @task.user do %>
-  <%= render "form.html", Map.put(assigns, :action, task_path(@conn, :update, @task)) %>
-<% else %>
-  <p>Only <%= @task.user.name %> may edit this task.</p>
-<% end %>
-<span><%= link "Back", to: task_path(@conn, :index) %></span>
