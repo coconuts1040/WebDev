@@ -2,11 +2,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, FormGroup, Label, Input } from 'reactstrap';
+import api from './api';
 
 function TaskForm(props) {
     function update(ev) {
         let target = $(ev.target);
-
+        console.log(target);
         let data = {};
         data[target.attr('name')] = target.val();
         let action = {
@@ -18,7 +19,20 @@ function TaskForm(props) {
     }
 
     function submit(ev) {
-        console.log("Creating task");
+        console.log("Creating task, rounding progress down to the nearest 15 minutes");
+        let props_rounded = parseInt(props.form.progress) - (parseInt(props.form.progress) % 15);
+        let data = {};
+        data["progress"] = props_rounded;
+        let action = {
+            type: 'UPDATE_FORM',
+            data: data,
+        };
+        //        props.dispatch(action);
+
+        //        let new_form = props.form;
+        //        new_form['progress'] = props_rounded;
+        //        console.log("new form", new_form);
+
         api.submit_task(props.form);
         console.log(props.form);
     }
@@ -45,8 +59,10 @@ function TaskForm(props) {
             <Input type="number" name="progress" value={props.form.progress} onChange={update} />
         </FormGroup>
         <FormGroup>
-            <Input type="checkbox" name="completed" value={props.form.completed} onChange={update} />
             <Label for="completed">Completed?</Label>
+            <span className="col-1 offset-1">
+                <Input type="checkbox" name="completed" value={props.form.completed} onChange={update} />
+            </span>
         </FormGroup>
         <Button onClick={submit} color="primary">Create</Button>
     </div>;

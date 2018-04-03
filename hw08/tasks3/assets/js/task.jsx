@@ -7,11 +7,11 @@ export default function Task(params) {
     return <Card>
         <CardBody>
             <div>
-                <p><strong>Title:</strong> <b>{ task.title }</b></p>
-                <p><strong>Assigned to:</strong> <b>{ task.user.name }</b></p>
-                <p><strong>Description:</strong> <b>{ task.description }</b></p>
-                <p><strong>Progress:</strong> <b>{ task.progress }</b></p>
-                <p><strong>Completed:</strong> <b>{ task.completed }</b></p>
+                <p><strong>Title:</strong> { task.title }</p>
+                <p><strong>Assigned to:</strong> { task.user.name }</p>
+                <p><strong>Description:</strong> { task.description }</p>
+                <p><strong>Progress:</strong> { task.progress }</p>
+                <p><strong>Completed:</strong> { task.completed }</p>
             </div>
         </CardBody>
     </Card>;

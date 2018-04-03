@@ -24,7 +24,10 @@ function users(state = [], action) {
 
 let empty_form = {
     user_id: "",
-    body: "",
+    title: "",
+    description: "",
+    progress: "",
+    completed: false,
 };
 
 function form(state = empty_form, action) {
