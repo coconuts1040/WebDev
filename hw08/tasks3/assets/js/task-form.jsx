@@ -2,11 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, FormGroup, Label, Input } from 'reactstrap';
+import api from './api';
 
 function TaskForm(props) {
     function update(ev) {
         let target = $(ev.target);
-
         let data = {};
         data[target.attr('name')] = target.val();
         let action = {
@@ -18,9 +18,12 @@ function TaskForm(props) {
     }
 
     function submit(ev) {
-        console.log("Creating task");
-        api.submit_task(props.form);
-        console.log(props.form);
+        console.log("Creating task, rounding progress down to the nearest 15 minutes");
+        let props_rounded = parseInt(props.form.progress) - (parseInt(props.form.progress) % 15);
+        const data = Object.assign({}, props.form, {progress: props_rounded})
+
+        api.submit_task(data);
+        console.log(data);
     }
 
     let users = _.map(props.users, (uu) => <option key={uu.id} value={uu.id}>{uu.name}</option>);
@@ -45,8 +48,13 @@ function TaskForm(props) {
             <Input type="number" name="progress" value={props.form.progress} onChange={update} />
         </FormGroup>
         <FormGroup>
-            <Input type="checkbox" name="completed" value={props.form.completed} onChange={update} />
             <Label for="completed">Completed?</Label>
+            <span className="col-1 offset-1">
+                <Input type="select" name="completed" value={props.form.completed} onChange={update} >
+                    <option key="0" value={true}>True</option>
+                    <option key="1" value={false}>False</option>
+                </Input>
+            </span>
         </FormGroup>
         <Button onClick={submit} color="primary">Create</Button>
     </div>;

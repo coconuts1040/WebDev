@@ -37,6 +37,12 @@ defmodule Tasks3.Accounts do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+  # Taken from Nat Tuck's lecture notes
+  def get_and_authorize_user(email, pass) do
+    user = Repo.one(from u in User, where: u.email == ^email)
+    Comeonin.Argon2.check_pass(user, pass)
+  end
+
   @doc """
   Creates a user.
 
