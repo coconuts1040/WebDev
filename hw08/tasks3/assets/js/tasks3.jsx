@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './nav';
 import Feed from './feed';
 import Users from './users';
+import NewUser from './new_user';
 import TaskForm from './task-form';
 
 export default function tasks3_init(store) {
@@ -36,6 +37,9 @@ let Tasks3 = connect((state) => state)((props) => {
                     <Feed tasks={_.filter(props.tasks, (tt) =>
                         match.params.user_id == tt.user.id )
                     } />
+                } />
+                <Route path="/users/new" render={() =>
+                    <NewUser />
                 } />
             </div>
         </Router>
