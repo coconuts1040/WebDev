@@ -28,11 +28,37 @@ let empty_form = {
     description: "",
     progress: "",
     completed: false,
+    token: "",
 };
 
 function form(state = empty_form, action) {
     switch (action.type) {
         case 'UPDATE_FORM':
+            return Object.assign({}, state, action.data);
+        case 'SET_TOKEN':
+            return Object.assign({}, state, action.token);
+        default:
+            return state;
+    }
+}
+
+function token(state = null, action) {
+    switch (action.type) {
+        case 'SET_TOKEN':
+            return action.token;
+        default:
+            return state;
+    }
+}
+
+let empty_login = {
+    email: "",
+    pass: "",
+};
+
+function login(state = empty_login, action) {
+    switch (action.type) {
+        case 'UPDATE_LOGIN_FORM':
             return Object.assign({}, state, action.data);
         default:
             return state;
@@ -41,7 +67,7 @@ function form(state = empty_form, action) {
 
 function root_reducer(state0, action) {
     console.log("root_reducer", action);
-    let reducer = combineReducers({tasks, users, form});
+    let reducer = combineReducers({tasks, users, form, token, login});
 
     let state1 = reducer(state0, action);
     console.log("state1", state1);
