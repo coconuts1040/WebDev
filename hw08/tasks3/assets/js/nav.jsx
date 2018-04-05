@@ -29,7 +29,8 @@ let LoginForm = connect(({login}) => {return {login};})((props) => {
             <FormGroup>
                 <Input type="password" name="pass" placeholder="password" value={props.login.pass} onChange={update} />
             </FormGroup>
-            <Button onClick={create_token}>Login</Button>
+            <Button color="outline-light" onClick={create_token}>Login</Button>
+            <a className="btn btn-outline-light" href="/users/new" role="button" to="/users/new">Register</a>
         </Form>
     </div>;
 });
@@ -37,7 +38,10 @@ let LoginForm = connect(({login}) => {return {login};})((props) => {
 let Session = connect(({token}) => {return {token};})((props) => {
     console.log("Session Token", props.token);
     return <div className="navbar-text">
-        User id = { props.token.user_id }
+        <span>User id = { props.token.user_id }</span>
+        <Form inline>
+            <Button color="danger" onClick={location.reload()}>Log Out</Button>
+        </Form>
     </div>;
 });
 

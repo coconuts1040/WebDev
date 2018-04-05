@@ -17,6 +17,8 @@ function users(state = [], action) {
     switch (action.type) {
         case 'USERS_LIST':
             return [...action.users];
+        case 'CREATE_USER':
+            return [action.user, ...state];
         default:
             return state;
     }
@@ -37,6 +39,21 @@ function form(state = empty_form, action) {
             return Object.assign({}, state, action.data);
         case 'SET_TOKEN':
             return Object.assign({}, state, action.token);
+        default:
+            return state;
+    }
+}
+
+let empty_user = {
+    name: "",
+    email: "",
+    password: "",
+};
+
+function user_form(state = empty_user, action) {
+    switch(action.type) {
+        case 'UPDATE_USER_FORM':
+            return Object.assign({}, state, action.data);
         default:
             return state;
     }
@@ -67,7 +84,7 @@ function login(state = empty_login, action) {
 
 function root_reducer(state0, action) {
     console.log("root_reducer", action);
-    let reducer = combineReducers({tasks, users, form, token, login});
+    let reducer = combineReducers({tasks, users, form, token, login, user_form});
 
     let state1 = reducer(state0, action);
     console.log("state1", state1);
